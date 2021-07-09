@@ -195,3 +195,12 @@ GET http://localhost:8080/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f
 
 ## Delivery
 Please upload your results to a publicly accessible Git repo. Free ones are provided by Github and Bitbucket.
+
+
+## RUN
+```
+./gradlew clean test
+
+./gradlew bootRun
+
+```

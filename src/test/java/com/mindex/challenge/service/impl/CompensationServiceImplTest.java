@@ -35,9 +35,6 @@ public class CompensationServiceImplTest {
     EmployeeRepository mEmployeeRepository;
 
     @Autowired
-    private CompensationService compensationService;
-
-    @Autowired
     private TestRestTemplate restTemplate;
     
     @LocalServerPort
@@ -53,7 +50,7 @@ public class CompensationServiceImplTest {
     public void testCreateRead(){
         
         testCompensationForEmployee(Constants.POST_EMPLOYEE_ONE, Constants.TEST_SALARY_ONE, Constants.TEST_EFFDATE_ONE);
-        System.out.println("Hawa  Compensation done" );
+        //System.out.println("Hawa  Compensation done" );
     }
 
     private void testCompensationForEmployee(String employeeId, int salary, String date){
