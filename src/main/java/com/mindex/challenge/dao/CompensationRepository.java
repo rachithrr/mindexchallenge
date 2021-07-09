@@ -11,6 +11,5 @@ public interface CompensationRepository extends MongoRepository<Compensation, St
 
     Compensation findByEmployee(Employee employee);
 
-    //Compensation findBymEmployee(Employee employee);
     
 }

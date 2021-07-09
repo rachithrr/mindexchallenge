@@ -78,7 +78,9 @@ the fully filled out ReportingStructure for the specified employeeId. The values
 not be persisted.
 
 ```
-http://localhost:8080/employee/16a596ae-edd3-4847-99fe-c4518e82c86f/reporting-structure
+GET http://localhost:8080/employee/16a596ae-edd3-4847-99fe-c4518e82c86f/reporting-structure
+
+Returns reporting structre consisting of number of reports and the fully filled employee information
 
 {
     "numberOfReports": 4,
@@ -132,6 +134,64 @@ http://localhost:8080/employee/16a596ae-edd3-4847-99fe-c4518e82c86f/reporting-st
 Create a new type, Compensation. A Compensation has the following fields: employee, salary, and effectiveDate. Create 
 two new Compensation REST endpoints. One to create and one to read by employeeId. These should persist and query the 
 Compensation from the persistence layer.
+
+```
+POST http://localhost:8080/compensation
+
+{
+  "employee" : {
+      "employeeId" : "22222222-edd3-4847-99fe-c4518e82c86f",
+      "firstName" : "John",
+      "lastName" : "Lennon",
+      "position" : "Development Manager",
+      "department" : "Engineering",
+      "directReports" : [
+        {
+          "employeeId" : "b7839309-3348-463b-a7e3-5de1c168beb3"
+        },
+        {
+          "employeeId": "03aa1462-ffa9-4978-901b-7c001562cf6f"
+        }
+      ]
+    },
+    "salary" : 5000,
+    "effectiveDate" : "2019-02-05"
+}
+
+
+GET http://localhost:8080/compensation/16a596ae-edd3-4847-99fe-c4518e82c86f
+
+{
+    "employee": {
+        "employeeId": "16a596ae-edd3-4847-99fe-c4518e82c86f",
+        "firstName": "John",
+        "lastName": "Lennon",
+        "position": "Development Manager",
+        "department": "Engineering",
+        "directReports": [
+            {
+                "employeeId": "b7839309-3348-463b-a7e3-5de1c168beb3",
+                "firstName": null,
+                "lastName": null,
+                "position": null,
+                "department": null,
+                "directReports": null
+            },
+            {
+                "employeeId": "03aa1462-ffa9-4978-901b-7c001562cf6f",
+                "firstName": null,
+                "lastName": null,
+                "position": null,
+                "department": null,
+                "directReports": null
+            }
+        ]
+    },
+    "salary": 1000,
+    "effectiveDate": "1990-02-05"
+}
+```
+
 
 ## Delivery
 Please upload your results to a publicly accessible Git repo. Free ones are provided by Github and Bitbucket.
